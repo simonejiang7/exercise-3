@@ -80,10 +80,16 @@ ex:section4 a was:Section;
   was hasDimension ex:[1,1,2,2];
   was grows ex:crop2 .
 
-ex wheat1 a was:Wheat .
-ex wheat2 a was:Wheat .
-ex crop1 a was:Crop .
-ex crop2 a was:Crop .
+ex wheat1 a was:Wheat;
+  was hasMoistureLevel ex: 125 .
 
+ex wheat2 a was:Wheat;
+  was hasMoistureLevel ex: 115 .
+
+ex crop1 a was:Crop;
+  was hasMoistureLevel ex: 85 .
+
+ex crop2 a was:Crop;
+  was hasMoistureLevel ex: 75 .
 
 

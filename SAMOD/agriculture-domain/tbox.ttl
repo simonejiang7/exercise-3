@@ -61,6 +61,10 @@ was:monitors rdf:type owl:ObjectProperty .
 was:operates rdf:type owl:ObjectProperty .
 
 
+###  https://www.w3.org/2019/wot/td#hasActionAffordance
+td:hasActionAffordance rdf:type owl:ObjectProperty .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -89,15 +93,19 @@ was:CornCrop rdf:type owl:Class ;
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Crop
 was:Crop rdf:type owl:Class ;
          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty was:hasMoistureLevel ;
-                            owl:someValuesFrom was:SoilMoisture
-                          ] ;
+                           owl:onProperty was:hasMoistureLevel ;
+                           owl:someValuesFrom was:SoilMoisture
+                         ] ;
          rdfs:comment "Crop grows on land sections." .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Farm
 was:Farm rdf:type owl:Class ;
          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty hmas:contains ;
+                           owl:someValuesFrom was:Tractor
+                         ] ,
+                         [ rdf:type owl:Restriction ;
                            owl:onProperty was:hasLandSection ;
                            owl:someValuesFrom was:Section
                          ] ;
@@ -108,7 +116,7 @@ was:Farm rdf:type owl:Class ;
 was:IrrigateAffordance rdf:type owl:Class ;
                        rdfs:subClassOf [ rdf:type owl:Restriction ;
                                          owl:onProperty was:irrigates ;
-                                         owl:someValuesFrom was:Section
+                                         owl:someValuesFrom was:Crop
                                        ] ;
                        owl:disjointWith was:ReadSoilMoistureAffordance ;
                        rdfs:comment "An affordance offerred by the environment to agents for irrigating the soil."@en .
@@ -131,7 +139,7 @@ was:MonitorAgent rdf:type owl:Class ;
 was:ReadSoilMoistureAffordance rdf:type owl:Class ;
                                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                  owl:onProperty was:monitors ;
-                                                 owl:someValuesFrom was:Section
+                                                 owl:someValuesFrom was:Crop
                                                ] ;
                                rdfs:comment "An affordance offerred by the environment to agents for reading the moisture level of soil."@en .
 
@@ -145,10 +153,6 @@ was:Section rdf:type owl:Class ;
                             [ rdf:type owl:Restriction ;
                               owl:onProperty was:hasDimension ;
                               owl:someValuesFrom was:Coordinates
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty hmas:contains ;
-                              owl:someValuesFrom was:SoilMoisture
                             ] ;
             rdfs:comment "Land sections that divide the farm, consisting of different crop types. The type of land section is square." .
 
@@ -174,10 +178,6 @@ was:Tractor rdf:type owl:Class ;
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#WheatCrop
 was:WheatCrop rdf:type owl:Class ;
               rdfs:subClassOf was:Crop ;
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                  owl:onProperty was:hasMoistureLevel ;
-                  owl:someValuesFrom was:SoilMoisture
-                ] ;
               rdfs:comment "One kind of crop type grew on the land sections." .
 
 
