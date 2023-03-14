@@ -32,5 +32,21 @@ The tractors are operated by two autonomous agents: An agent that monitors the c
 - **IrrigateAffordance**: An affordance offerred by the environment to agents for irrigating the soil.
 - **Coordinates**: A set of 4 coordinates [X1,Y1,X2,Y2] that define the opposite corners of a square section at points [X1,Y1] and [X2,Y2].
 - **SoilMoisture**: The level of moisture in soil.
-- ...
-- *Complete the glossary for definiting terms required to model the motivating scenario of the domain. These terms will then be formally defined in your TBox.*
+- **Section**: Land sections that divide the farm, consisting of different crop types. The type of land section is square.
+- **Wheat**: One kind of crop type grew on the land sections.
+- **Crop**: Another kind of crop type grew on the land sections.
+- **MonitorAgent**: Agent that operates the tractor to monitor the level of moisture of the land section.
+- **IrrigateAgent**: Agent that operates the tractor to irrigate the land section.
+- **hasLandSection**: The farm has land sections.
+- **hasDimensions**: The geometric information of the land section defined by the coordinates.
+- **grows**: The land section grows crops, such as wheat and corn.
+- **hasMoistureLevelOf**: The land section has moisture level.
+- **contains**: The farm contains tractors.
+- **operates**: The agent operates a tractor.
+- **hasActionAffordance**: The tractor has an affordance for a land section.
+- **monitors**: The capacity of an affordance to read the moisture level of soil of a land section.
+- **irrigates**: The capacity of an affordance to irrigate a land section.
+
+
+
+
