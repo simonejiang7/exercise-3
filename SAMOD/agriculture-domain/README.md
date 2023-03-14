@@ -33,8 +33,9 @@ The tractors are operated by two autonomous agents: An agent that monitors the c
 - **Coordinates**: A set of 4 coordinates [X1,Y1,X2,Y2] that define the opposite corners of a square section at points [X1,Y1] and [X2,Y2].
 - **SoilMoisture**: The level of moisture in soil.
 - **Section**: Land sections that divide the farm, consisting of different crop types. The type of land section is square.
+- **Crop**: Crop grows on land sections.
 - **Wheat**: One kind of crop type grew on the land sections.
-- **Crop**: Another kind of crop type grew on the land sections.
+- **Corn**: Another kind of crop type grew on the land sections.
 - **MonitorAgent**: Agent that operates the tractor to monitor the level of moisture of the land section.
 - **IrrigateAgent**: Agent that operates the tractor to irrigate the land section.
 - **hasLandSection**: The farm has land sections.
