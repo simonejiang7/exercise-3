@@ -131,27 +131,89 @@ public class FarmKG extends Artifact {
     }
 
     @OPERATION
-    public void queryFarmSections(String farm, OpFeedbackParam<Object[]> sections) {
+    public void queryFarmSections(String farm, OpFeedbackParam<Object> sections) {
+
         // the variable where we will store the result to be returned to the agent
-        Object[] sectionsValue = new Object[]{ "fakeSection1", "fakeSection2", "fakeSection3", "fakeSection4" };
+        Object sectionValue = null; 
+
+        // sets your variable name for the farm to be queried
+        String sectionName = "section";
+
+        // constructs query
+        String queryStr = PREFIXES + "SELECT ?" + sectionName + " WHERE {\n" + 
+            "<" + farm + "> a was:Farm.\n" +
+            "?farm was:hasLandSection ?" + sectionName + ".\n" +
+            "?" + sectionName +" a was:Section.";
+
+        // executes query
+        JsonArray sectionBindings = executeQuery(queryStr);
+
+        // handles result as JSON object
+        JsonObject firstBinding = sectionBindings.get(0).getAsJsonObject();
+        JsonObject sectionBinding = firstBinding.getAsJsonObject(sectionName);
+        sectionValue = sectionBinding.getAsJsonPrimitive("value");
 
         // sets the value of interest to the OpFeedbackParam
-        sections.set(sectionsValue);
+        sections.set(sectionValue);
     }
 
     @OPERATION
-    public void querySectionCoordinates(String section, OpFeedbackParam<Object[]> coordinates) {
+    public void querySectionCoordinates(String section, OpFeedbackParam<Object> coordinates) {
         // the variable where we will store the result to be returned to the agent
-        Object[] coordinatesValue = new Object[]{ 0, 0, 1, 1 };
+        // Object[] coordinatesValue = new Object[]{ 0, 0, 1, 1 };
 
         // sets the value of interest to the OpFeedbackParam
-        coordinates.set(coordinatesValue);
+
+        // Object[] coordinatesValue = new Object[]{ 0, 0, 1, 1 };
+        Object coordinateValue = null; 
+
+        // sets your variable name for the farm to be queried
+        String coordinatesValueName = "coordinates";
+
+        // constructs query
+        String queryStr = PREFIXES + "SELECT ?" + coordinatesValueName + " WHERE {\n" + 
+            "<" + section + "> a was:Section.\n" +
+            "?section was:hasCoordinates ?" + coordinatesValueName + ".\n" +
+            "?" + coordinatesValueName +" a was:Coordinate.";
+
+        // executes query
+        JsonArray coordinateBindings = executeQuery(queryStr);
+
+        // handles result as JSON object
+        JsonObject firstBinding = coordinateBindings.get(0).getAsJsonObject();
+        JsonObject sectionBinding = firstBinding.getAsJsonObject(coordinatesValueName);
+        coordinateValue = sectionBinding.getAsJsonPrimitive("value");
+
+        // sets the value of interest to the OpFeedbackParam
+        coordinates.set(coordinateValue);
     }
 
     @OPERATION 
     public void queryCropOfSection(String section, OpFeedbackParam<String> crop) {
         // the variable where we will store the result to be returned to the agent
-        String cropValue = "fakeCrop";
+        // String cropValue = "fakeCrop";
+
+        // // sets the value of interest to the OpFeedbackParam
+        // crop.set(cropValue);
+
+        String cropValue = null; 
+
+        // sets your variable name for the farm to be queried
+        String cropValueName = "coordinates";
+
+        // constructs query
+        String queryStr = PREFIXES + "SELECT ?" +  cropValueName + " WHERE {\n" + 
+            "<" + section + "> a was:Section.\n" +
+            "?section was:grows ?" +  cropValueName+ ".\n" +
+            "?" + cropValueName +" a was:Crop.";
+
+        // executes query
+        JsonArray cropBindings = executeQuery(queryStr);
+
+        // handles result as JSON object
+        JsonObject firstBinding = cropBindings.get(0).getAsJsonObject();
+        JsonObject sectionBinding = firstBinding.getAsJsonObject(cropValueName);
+        cropValue = sectionBinding.getAsJsonPrimitive("value").getAsString();
 
         // sets the value of interest to the OpFeedbackParam
         crop.set(cropValue);
@@ -160,10 +222,32 @@ public class FarmKG extends Artifact {
     @OPERATION
     public void queryRequiredMoisture(String crop, OpFeedbackParam<Integer> level) {
         // the variable where we will store the result to be returned to the agent
-        Integer moistureLevelValue = 120;
+        // Integer moistureLevelValue = 120;
+
+        // // sets the value of interest to the OpFeedbackParam
+        // level.set(moistureLevelValue);
+        
+        Integer moistureLevelValue = 0;
+
+        // sets your variable name for the farm to be queried
+        String moistureName = "soilmoisture";
+
+        // constructs query
+        String queryStr = PREFIXES + "SELECT ?" +  moistureName + " WHERE {\n" + 
+            "<" + crop + "> a was:Crop.\n" +
+            "?crop was:hasMoistureLevel ?" +  moistureName + ".\n" +
+            "?" + moistureName +" a was:SoilMoisture.";
+
+        // executes query
+        JsonArray moistureBindings = executeQuery(queryStr);
+
+        // handles result as JSON object
+        JsonObject firstBinding = moistureBindings.get(0).getAsJsonObject();
+        JsonObject moistureBinding = firstBinding.getAsJsonObject(moistureName);
+        moistureLevelValue  = moistureBinding.getAsJsonPrimitive("value").getAsInt();
 
         // sets the value of interest to the OpFeedbackParam
-        level.set(moistureLevelValue);
+        level.set(moistureLevelValue );
     }
 
     private JsonArray executeQuery(String queryStr) {
