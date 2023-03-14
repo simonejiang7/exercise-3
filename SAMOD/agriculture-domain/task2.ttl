@@ -1,15 +1,18 @@
-@base <https://was-course.interactions.ics.unisg.ch/farm-ontology#> .
-@prefix was: <https://was-course.interactions.ics.unisg.ch/farm-ontology#> .
+@prefix : <https://was-course.interactions.ics.unisg.ch/farm-ontology#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix was: <https://was-course.interactions.ics.unisg.ch/farm-ontology#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix hmas: <<https://purl.org/hmas/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@base <https://was-course.interactions.ics.unisg.ch/farm-ontology#> .
 
 <https://was-course.interactions.ics.unisg.ch/farm-ontology#> rdf:type owl:Ontology ;
-                                                              rdfs:comment "An ontology for representing knowledge useful for the management of farms."@en ;
-                                                              vann:preferredNamespacePrefix "was" .
+                                                               vann:preferredNamespacePrefix "was" ;
+                                                               rdfs:comment "An ontology for representing knowledge useful for the management of farms."@en .
 
 #################################################################
 #    Annotation properties
