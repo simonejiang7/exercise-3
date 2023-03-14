@@ -1,0 +1,391 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial>
+  a owl:Ontology ;
+  rdfs:comment "A tutorial ontology for the Pizza domain" .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasBase>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasIngredient> ;
+  owl:inverseOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#isBaseOf> ;
+  rdfs:domain <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Pizza> ;
+  rdfs:range <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaBase> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasIngredient>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#isIngredientOf> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasSpiciness>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaTopping> ;
+  rdfs:range <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Spiciness> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasIngredient> ;
+  owl:inverseOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#isToppingOf> ;
+  rdfs:domain <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Pizza> ;
+  rdfs:range <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#isBaseOf>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#isIngredientOf> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#isIngredientOf> a owl:ObjectProperty .
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#isToppingOf>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#isIngredientOf> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#AmericanHotPizza>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#NamedPizza>, [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#JalapenoPepperTopping>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MozzarellaTopping>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PepperoniTopping>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#TomatoTopping>
+  ] ;
+  rdfs:comment "A pizza that has toppings of pepperoni, mozzarella and tomato" .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#AmericanPizza>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#NamedPizza>, [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MozzarellaTopping>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PepperoniTopping>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#TomatoTopping>
+  ] ;
+  rdfs:comment "A pizza that has toppings of pepperoni, mozzarella and tomato." .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#AnchovyTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#SeafoodTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#CaperTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#VegetableTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#CheeseTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#CheesyPizza>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Pizza>
+     _:genid10
+   )
+  ] .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#DeepPanBase>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaBase> ;
+  owl:disjointWith <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#ThinAndCrispyBase> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#GreenPepperTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PepperTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#HamTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MeatTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#InterestingPizza>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Pizza>
+     _:genid14
+   )
+  ] .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#JalapenoPepperTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PepperTopping>, [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasSpiciness> ;
+    owl:hasValue <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Hot>
+  ] .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MargheritaPizza>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#NamedPizza>, [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MozzarellaTopping>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#TomatoTopping>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:allValuesFrom [
+      a owl:Class ;
+      owl:unionOf (
+       <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MozzarellaTopping>
+       <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#TomatoTopping>
+     )
+    ]
+  ] ;
+  rdfs:comment "A pizza that only has Mozzarella and Tomato toppings" .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MeatTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MozzarellaTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#CheeseTopping> ;
+  owl:disjointWith <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#ParmesanTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MushroomTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#VegetableTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#NamedPizza>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Pizza> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#OliveTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#VegetableTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#ParmesanTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#CheeseTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PepperTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#VegetableTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PepperoniTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MeatTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Pizza>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasBase> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaBase>
+  ] .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaBase> a owl:Class .
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaTopping> a owl:Class .
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PrawnTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#SeafoodTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#RedPepperTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PepperTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#SalamiTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MeatTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#SeafoodTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#SohoPizza>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#NamedPizza>, [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MozzarellaTopping>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#OliveTopping>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#ParmesanTopping>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#TomatoTopping>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+    owl:allValuesFrom [
+      a owl:Class ;
+      owl:unionOf (
+       <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MozzarellaTopping>
+       <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#OliveTopping>
+       <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#ParmesanTopping>
+       <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#TomatoTopping>
+     )
+    ]
+  ] ;
+  rdfs:comment "A pizza that only has Mozzarella and Tomato toppings" .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Spiciness>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:oneOf (
+     <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Hot>
+     <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Medium>
+     <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Mild>
+   )
+  ] .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#SpicyPizza>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Pizza>
+     _:genid40
+   )
+  ] .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#SpicyeefTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MeatTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#ThinAndCrispyBase>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaBase> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#TomatoTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#VegetableTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#TunaTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#SeafoodTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#VegetableTopping>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaTopping> .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#VegetarianPizza>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Pizza>
+     _:genid45
+   )
+  ] .
+
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Hot> a owl:NamedIndividual .
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Medium> a owl:NamedIndividual .
+<http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Mild> a owl:NamedIndividual, <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Spiciness> .
+_:genid10
+  a owl:Restriction ;
+  owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+  owl:someValuesFrom <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#CheeseTopping> .
+
+_:genid14
+  a owl:Restriction ;
+  owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+  owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+  owl:onClass <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaTopping> .
+
+_:genid40
+  a owl:Restriction ;
+  owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+  owl:someValuesFrom [
+    a owl:Restriction ;
+    owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasSpiciness> ;
+    owl:hasValue <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Hot>
+  ] .
+
+_:genid45
+  a owl:Restriction ;
+  owl:onProperty <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#hasTopping> ;
+  owl:allValuesFrom [
+    a owl:Class ;
+    owl:unionOf (
+     <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#CheeseTopping>
+     <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#VegetableTopping>
+   )
+  ] .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#AmericanHotPizza>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#AmericanPizza>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MargheritaPizza>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#SohoPizza>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#AnchovyTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PrawnTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#TunaTopping>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#CaperTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MushroomTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#OliveTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PepperTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#TomatoTopping>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#CheeseTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#MeatTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#SeafoodTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#VegetableTopping>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#GreenPepperTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#JalapenoPepperTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#RedPepperTopping>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#HamTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PepperoniTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#SalamiTopping>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#SpicyeefTopping>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#Pizza>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaBase>
+   <http://www.semanticweb.org/sulmae/ontologies/2023/2/pizzatutorial#PizzaTopping>
+ ) .
