@@ -40,7 +40,7 @@ The tractors are operated by two autonomous agents: An agent that monitors the c
 - **MonitorAgent**: Agent that operates the tractor to monitor the level of moisture of the land section.
 - **IrrigateAgent**: Agent that operates the tractor to irrigate the land section.
 - **hasLandSection**: The farm has land sections.
-- **hasDimensions**: The geometric information of the land section defined by the coordinates.
+- **hasDimension**: The geometric information of the land section defined by the coordinates.
 - **grows**: The land section grows crops, such as wheat and corn.
 - **hasMoistureLevelOf**: The land section has moisture level.
 - **contains**: The farm contains tractors.

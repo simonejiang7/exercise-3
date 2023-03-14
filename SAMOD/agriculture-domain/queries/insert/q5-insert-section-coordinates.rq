@@ -7,31 +7,48 @@ PREFIX hctl: <https://www.w3.org/2019/wot/hypermedia#>
 PREFIX js: <https://www.w3.org/2019/wot/json-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
+PREFIX ex: <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-danai#>
 INSERT {
     GRAPH <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#>
     {
-        ?newSection1 was:hasDimension ?newCoordinate1.
-        ?newSection2 was:hasDimension ?newCoordinate2.
-        ?newSection3 was:hasDimension ?newCoordinate3.
-        ?newSection4 was:hasDimension ?newCoordinate4.
-
+        ?newSection1 was:hasCoordinates ?newCoordinate1.
+        ?newSection2 was:hasCoordinates ?newCoordinate2.
+        ?newSection3 was:hasCoordinates ?newCoordinate3.
+        ?newSection4 was:hasCoordinates ?newCoordinate4.
+        
         ?newCoordinate1 a was:Coordinates ;
-            was:hasDimension "0,0,1,1" .
+            was:hasDimensionX1 0;
+            was:hasDimensionY1 0;
+            was:hasDimensionX2 1;
+            was:hasDimensionY2 1.
+        
         ?newCoordinate2 a was:Coordinates ;
-            was:hasDimension "1,0,2,1" .
+            was:hasDimensionX1 1;
+            was:hasDimensionY1 0;
+            was:hasDimensionX2 2;
+            was:hasDimensionY2 1.
+        
         ?newCoordinate3 a was:Coordinates ;
-            was:hasDimension "0,1,1,2" .
+            was:hasDimensionX1 0;
+            was:hasDimensionY1 1;
+            was:hasDimensionX2 1;
+            was:hasDimensionY2 2.
+
         ?newCoordinate4 a was:Coordinates ;
-            was:hasDimension "1,1,2,2" .
-    }.
+            was:hasDimensionX1 1;
+            was:hasDimensionY1 1;
+            was:hasDimensionX2 2;
+            was:hasDimensionY2 2.
+    }
 } WHERE {
-    ?newSection1 a was:Section.
-    ?newSection2 a was:Section.
-    ?newSection3 a was:Section.
-    ?newSection4 a was:Section.
+    ?newSection1 <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-aa86201c-27b0-4741-bfba-ee4ba6b95193> ?section.
+    ?newSection1 <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-a98d1316-2c98-41f5-8b27-a29a3f47182e> ?section.
+    ?newSection1 <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-06cbadf3-a1ef-4cf9-be0d-81780577650c> ?section.
+    ?newSection1 <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-4cbbefd9-f235-4447-872e-e5ad47c835a0> ?section.
     
-  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#coordinate-", 1)) AS ?newCoordinate1)
-  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#coordinate-", 2)) AS ?newCoordinate2)
+    BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#coordinate-", 1)) AS ?newCoordinate1)
+    BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#coordinate-", 2)) AS ?newCoordinate2)
     BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#coordinate-", 3)) AS ?newCoordinate3)
     BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#coordinate-", 4)) AS ?newCoordinate4)
 }
+

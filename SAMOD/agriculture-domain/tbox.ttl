@@ -50,6 +50,26 @@ was:hasCoordinates rdf:type owl:ObjectProperty .
 was:hasDimension rdf:type owl:ObjectProperty .
 
 
+###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasDimensionX1
+was:hasDimensionX1 rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf was:hasDimension .
+
+
+###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasDimensionX2
+was:hasDimensionX2 rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf was:hasDimension .
+
+
+###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasDimensionY1
+was:hasDimensionY1 rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf was:hasDimension .
+
+
+###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasDimensionY2
+was:hasDimensionY2 rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf was:hasDimension .
+
+
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasLandSection
 was:hasLandSection rdf:type owl:ObjectProperty .
 
@@ -90,7 +110,19 @@ was:Agent rdf:type owl:Class ;
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Coordinates
 was:Coordinates rdf:type owl:Class ;
                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                  owl:onProperty was:hasDimension ;
+                                  owl:onProperty was:hasDimensionX1 ;
+                                  owl:someValuesFrom was:Dimension
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty was:hasDimensionX2 ;
+                                  owl:someValuesFrom was:Dimension
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty was:hasDimensionY1 ;
+                                  owl:someValuesFrom was:Dimension
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty was:hasDimensionY2 ;
                                   owl:someValuesFrom was:Dimension
                                 ] ;
                 rdfs:comment "A set of 4 coordinates [X1,Y1,X2,Y2] that define the opposite corners of a square section at points [X1,Y1] and [X2,Y2]."@en .
@@ -113,11 +145,7 @@ was:Crop rdf:type owl:Class ;
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Dimension
-was:Dimension rdf:type owl:Class ;
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty owl:topObjectProperty ;
-                                owl:someValuesFrom was:Coordinates
-                              ] .
+was:Dimension rdf:type owl:Class .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Farm

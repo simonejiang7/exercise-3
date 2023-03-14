@@ -10,28 +10,20 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 INSERT {
     GRAPH <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#>
     {
-        ?newSection1 was:hasDimension ?newCoordinate1.
-        ?newSection2 was:hasDimension ?newCoordinate2.
-        ?newSection3 was:hasDimension ?newCoordinate3.
-        ?newSection4 was:hasDimension ?newCoordinate4.
+        ?farm was:hasLandSection ?newSection1.
+        ?farm was:hasLandSection ?newSection2.
+        ?farm was:hasLandSection ?newSection3.
+        ?farm was:hasLandSection ?newSection4.
 
-        ?newCoordinate1 a was:Coordinates ;
-            was:hasDimension "0,0,1,1" .
-        ?newCoordinate2 a was:Coordinates ;
-            was:hasDimension "1,0,2,1" .
-        ?newCoordinate3 a was:Coordinates ;
-            was:hasDimension "0,1,1,2" .
-        ?newCoordinate4 a was:Coordinates ;
-            was:hasDimension "1,1,2,2" .
+        ?newSection1 a was:Section.
+        ?newSection2 a was:Section.
+        ?newSection3 a was:Section.
+        ?newSection4 a was:Section.
     }.
 } WHERE {
-    ?newSection1 a was:Section.
-    ?newSection2 a was:Section.
-    ?newSection3 a was:Section.
-    ?newSection4 a was:Section.
-    
-  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#coordinate-", 1)) AS ?newCoordinate1)
-  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#coordinate-", 2)) AS ?newCoordinate2)
-    BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#coordinate-", 3)) AS ?newCoordinate3)
-    BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#coordinate-", 4)) AS ?newCoordinate4)
+	?farm a was:Farm.
+  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-", strUUID())) AS ?newSection1)
+  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-", strUUID())) AS ?newSection2)
+    BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-", strUUID())) AS ?newSection3)
+    BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-", strUUID())) AS ?newSection4)
 }

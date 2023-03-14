@@ -1,0 +1,33 @@
+PREFIX was: <https://was-course.interactions.ics.unisg.ch/farm-ontology#>
+PREFIX hmas: <https://purl.org/hmas/>
+PREFIX td: <https://www.w3.org/2019/wot/td#>
+PREFIX wotsec: <https://www.w3.org/2019/wot/security#>
+PREFIX htv: <http://www.w3.org/2011/http#>
+PREFIX hctl: <https://www.w3.org/2019/wot/hypermedia#>
+PREFIX js: <https://www.w3.org/2019/wot/json-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT {
+    GRAPH <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#>
+    {
+        ?section1 was:grows ?wheat1.
+        ?section2 was:grows ?wheat2.
+        ?section3 was:grows ?crop1.
+        ?section4 was:grows ?crop2.
+
+        ?wheat1 a was:Wheat.
+        ?wheat2 a was:Wheat.
+        ?crop1 a was:Crop.
+        ?crop2 a was:Crop.
+    }.
+} WHERE {
+	?newSection1 <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-aa86201c-27b0-4741-bfba-ee4ba6b95193> ?section.
+    ?newSection2 <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-a98d1316-2c98-41f5-8b27-a29a3f47182e> ?section.
+    ?newSection3 <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-06cbadf3-a1ef-4cf9-be0d-81780577650c> ?section.
+    ?newSection4 <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-4cbbefd9-f235-4447-872e-e5ad47c835a0> ?section.
+
+  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#crop-", 1)) AS ?crop1)
+  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#crop-", 2)) AS ?crop2)
+    BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#wheat-", 1)) AS ?wheat1)
+    BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#wheat-", 2)) AS ?wheat2)
+}

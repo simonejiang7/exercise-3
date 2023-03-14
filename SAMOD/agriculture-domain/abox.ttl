@@ -81,27 +81,39 @@ ex:section4 a was:Section;
   was:grows ex:crop2 .
 
 ex:coordinate1 a was:Coordinates;
-  was:hasDimension ex:0,0,1,1 .
+  was:hasDimensionX1 0;
+  was:hasDimensionY1 0;
+  was:hasDimensionX2 1;
+  was:hasDimensionY2 1.
 
 ex:coordinate2 a was:Coordinates;
-  was:hasDimension ex:1,0,2,1 .
+  was:hasDimensionX1 1;
+  was:hasDimensionY1 0;
+  was:hasDimensionX2 2;
+  was:hasDimensionY2 1.
 
 ex:coordinate3 a was:Coordinates;
-  was:hasDimension ex:0,1,1,2 .
+  was:hasDimensionX1 0;
+  was:hasDimensionY1 1;
+  was:hasDimensionX2 1;
+  was:hasDimensionY2 2.
 
 ex:coordinate4 a was:Coordinates;
-  was:hasDimension ex:1,1,2,2 .
+  was:hasDimensionX1 1;
+  was:hasDimensionY1 1;
+  was:hasDimensionX2 2;
+  was:hasDimensionY2 2.
 
 ex:wheat1 a was:Wheat;
-  was:hasMoistureLevel ex:125 .
+  was:hasMoistureLevel 125 .
 
 ex:wheat2 a was:Wheat;
-  was:hasMoistureLevel ex:115 .
+  was:hasMoistureLevel 115 .
 
 ex:crop1 a was:Crop;
-  was:hasMoistureLevel ex:85 .
+  was:hasMoistureLevel 85 .
 
 ex:crop2 a was:Crop;
-  was:hasMoistureLevel ex:75 .
+  was:hasMoistureLevel 75 .
 
 
