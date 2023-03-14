@@ -34,8 +34,9 @@ The tractors are operated by two autonomous agents: An agent that monitors the c
 - **SoilMoisture**: The level of moisture in soil.
 - **Section**: Land sections that divide the farm, consisting of different crop types. The type of land section is square.
 - **Crop**: Crop grows on land sections.
-- **Wheat**: One kind of crop type grew on the land sections.
-- **Corn**: Another kind of crop type grew on the land sections.
+- **WheatCrop**: One kind of crop type grew on the land sections.
+- **CornCrop**: Another kind of crop type grew on the land sections.
+- **Agent**: Agent operates the tractor.
 - **MonitorAgent**: Agent that operates the tractor to monitor the level of moisture of the land section.
 - **IrrigateAgent**: Agent that operates the tractor to irrigate the land section.
 - **hasLandSection**: The farm has land sections.
