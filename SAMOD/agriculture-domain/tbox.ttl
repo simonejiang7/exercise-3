@@ -13,6 +13,7 @@
                                                               rdfs:comment "An ontology for representing knowledge useful for the management of farms."@en ;
                                                               vann:preferredNamespacePrefix "was" .
 
+
 #################################################################
 #    Annotation properties
 #################################################################
@@ -25,6 +26,10 @@ vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
+###  https://purl.org/hmas/contains
+hmas:contains rdf:type owl:ObjectProperty .
+
+
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#contains
 was:contains rdf:type owl:ObjectProperty .
 
@@ -35,6 +40,10 @@ was:grows rdf:type owl:ObjectProperty .
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasActionAffordance
 was:hasActionAffordance rdf:type owl:ObjectProperty .
+
+
+###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasCoordinates
+was:hasCoordinates rdf:type owl:ObjectProperty .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasDimension
@@ -80,6 +89,10 @@ was:Agent rdf:type owl:Class ;
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Coordinates
 was:Coordinates rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty was:hasDimension ;
+                                  owl:someValuesFrom was:Dimension
+                                ] ;
                 rdfs:comment "A set of 4 coordinates [X1,Y1,X2,Y2] that define the opposite corners of a square section at points [X1,Y1] and [X2,Y2]."@en .
 
 
@@ -97,6 +110,14 @@ was:Crop rdf:type owl:Class ;
                            owl:someValuesFrom was:SoilMoisture
                          ] ;
          rdfs:comment "Crop grows on land sections." .
+
+
+###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Dimension
+was:Dimension rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty owl:topObjectProperty ;
+                                owl:someValuesFrom was:Coordinates
+                              ] .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Farm
@@ -151,7 +172,7 @@ was:Section rdf:type owl:Class ;
                               owl:someValuesFrom was:Crop
                             ] ,
                             [ rdf:type owl:Restriction ;
-                              owl:onProperty was:hasDimension ;
+                              owl:onProperty was:hasCoordinates ;
                               owl:someValuesFrom was:Coordinates
                             ] ;
             rdfs:comment "Land sections that divide the farm, consisting of different crop types. The type of land section is square." .
