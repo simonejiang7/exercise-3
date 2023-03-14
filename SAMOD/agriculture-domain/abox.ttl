@@ -65,31 +65,31 @@ ex:tractor-ae039570-396e-424f-9008-2142c3201b73 a td:Thing, was:Tractor;
   ] .
 
 ex:section1 a was:Section;
-  was hasDimension ex:[0,0,1,1];
-  was grows ex:wheat1 .
+  was:hasDimension ex:[0,0,1,1];
+  was:grows ex:wheat1 .
 
 ex:section2 a was:Section;
-  was hasDimension ex:[1,0,2,1];
-  was grows ex:wheat2 .
+  was:hasDimension ex:[1,0,2,1];
+  was:grows ex:wheat2 .
 
 ex:section3 a was:Section;
-  was hasDimension ex:[0,1,1,2];
-  was grows ex:crop1 .
+  was:hasDimension ex:[0,1,1,2];
+  was:grows ex:crop1 .
 
 ex:section4 a was:Section;
-  was hasDimension ex:[1,1,2,2];
-  was grows ex:crop2 .
+  was:hasDimension ex:[1,1,2,2];
+  was:grows ex:crop2 .
 
-ex wheat1 a was:Wheat;
-  was hasMoistureLevel ex: 125 .
+ex:wheat1 a was:Wheat;
+  was:hasMoistureLevel ex: 125 .
 
-ex wheat2 a was:Wheat;
-  was hasMoistureLevel ex: 115 .
+ex:wheat2 a was:Wheat;
+  was:hasMoistureLevel ex: 115 .
 
-ex crop1 a was:Crop;
-  was hasMoistureLevel ex: 85 .
+ex:crop1 a was:Crop;
+  was:hasMoistureLevel ex: 85 .
 
-ex crop2 a was:Crop;
-  was hasMoistureLevel ex: 75 .
+ex:crop2 a was:Crop;
+  was:hasMoistureLevel ex: 75 .
 
 
