@@ -6,6 +6,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix hmas: <https://purl.org/hmas/> .
 
 <https://was-course.interactions.ics.unisg.ch/farm-ontology#> rdf:type owl:Ontology ;
                                                               rdfs:comment "An ontology for representing knowledge useful for the management of farms."@en ;
@@ -86,6 +88,10 @@ was:CornCrop rdf:type owl:Class ;
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Crop
 was:Crop rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty was:hasMoistureLevel ;
+                            owl:someValuesFrom was:SoilMoisture
+                          ] ;
          rdfs:comment "Crop grows on land sections." .
 
 
@@ -141,7 +147,7 @@ was:Section rdf:type owl:Class ;
                               owl:someValuesFrom was:Coordinates
                             ] ,
                             [ rdf:type owl:Restriction ;
-                              owl:onProperty was:hasMoistureLevel ;
+                              owl:onProperty hmas:contains ;
                               owl:someValuesFrom was:SoilMoisture
                             ] ;
             rdfs:comment "Land sections that divide the farm, consisting of different crop types. The type of land section is square." .
@@ -155,7 +161,7 @@ was:SoilMoisture rdf:type owl:Class ;
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Tractor
 was:Tractor rdf:type owl:Class ;
             rdfs:subClassOf [ rdf:type owl:Restriction ;
-                              owl:onProperty was:hasActionAffordance ;
+                              owl:onProperty td:hasActionAffordance ;
                               owl:someValuesFrom [ rdf:type owl:Class ;
                                                    owl:unionOf ( was:IrrigateAffordance
                                                                  was:ReadSoilMoistureAffordance
@@ -168,6 +174,10 @@ was:Tractor rdf:type owl:Class ;
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#WheatCrop
 was:WheatCrop rdf:type owl:Class ;
               rdfs:subClassOf was:Crop ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                  owl:onProperty was:hasMoistureLevel ;
+                  owl:someValuesFrom was:SoilMoisture
+                ] ;
               rdfs:comment "One kind of crop type grew on the land sections." .
 
 
