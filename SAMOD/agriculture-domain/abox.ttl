@@ -12,10 +12,42 @@
 ex:farm-17c04810-567a-4236-b310-611bb4fd2a8c a was:Farm;
   hmas:contains ex:tractor-34541705-7798-4a16-b76b-5fec2861e077,
     ex:tractor-ae039570-396e-424f-9008-2142c3201b73;
-  was:hasLandSection ex:section1,
-    ex:section2,
-    ex:section3,
-    ex:section4.
+  was:hasLandSection ex:section-1,
+    ex:section-2,
+    ex:section-3,
+    ex:section-4.
+
+ex:section-1 a was:Section;
+  was:grows ex:wheatcrop-1 ;
+  was:hasDimensions ( [ a was:Coordinates; was:x1 "0"^^xsd:integer; was:y1 "0"^^xsd:integer; was:x2 "1"^^xsd:integer; was:y2 "1"^^xsd:integer ]
+                     ) .
+
+ex:section-2 a was:Section;
+  was:grows ex:wheatcrop-2 ;
+  was:hasDimensions ( [ a was:Coordinate; was:x1 "1"^^xsd:integer; was:y1 "0"^^xsd:integer; was:x2 "2"^^xsd:integer; was:y2 "1"^^xsd:integer ]
+                     ) .
+
+ex:section-3 a was:Section;
+  was:grows ex:corncrop-1 ;
+  was:hasDimensions ( [ a was:Coordinate; was:x1 "0"^^xsd:integer; was:y1 "1"^^xsd:integer; was:x2 "1"^^xsd:integer; was:y2 "2"^^xsd:integer ]
+                     ) .
+
+ex:section-4 a was:Section;
+  was:grows ex:corncrop-2 ;
+  was:hasDimensions ( [ a was:Coordinate; was:x1 "1"^^xsd:integer; was:y1 "1"^^xsd:integer; was:x2 "2"^^xsd:integer; was:y2 "2"^^xsd:integer ]
+                     ) .
+
+ex:corncrop-1 a was:CornCrop;
+  was:hasMoistureLevelOf [ was:SoilMoisture "80"^^xsd:integer ].
+
+ex:corncrop-2 a was:CornCrop;
+  was:hasMoistureLevelOf [ was:SoilMoisture "120"^^xsd:integer ].
+
+ex:wheatcrop-1 a was:WheatCrop;
+  was:hasMoistureLevelOf [ was:SoilMoisture "80"^^xsd:integer ].
+
+ex:wheatcrop-2 a was:WheatCrop;
+  was:hasMoistureLevelOf [ was:SoilMoisture "120"^^xsd:integer ].
 
 ex:tractor-34541705-7798-4a16-b76b-5fec2861e077 a td:Thing, was:Tractor;
   hmas:hasProfile <https://raw.githubusercontent.com/Interactions-HSG/example-tds/was/tds/tractor1.ttl> ;
@@ -63,57 +95,4 @@ ex:tractor-ae039570-396e-424f-9008-2142c3201b73 a td:Thing, was:Tractor;
       ]
     ]
   ] .
-
-ex:section1 a was:Section;
-  was:hasCoordinates ex:coordinate1;
-  was:grows ex:wheat1 .
-
-ex:section2 a was:Section;
-  was:hasCoordinates ex:coordinate2;
-  was:grows ex:wheat2 .
-
-ex:section3 a was:Section;
-  was:hasCoordinates ex:coordinate3;
-  was:grows ex:crop1 .
-
-ex:section4 a was:Section;
-  was:hasCoordinates ex:coordinate4;
-  was:grows ex:crop2 .
-
-ex:coordinate1 a was:Coordinates;
-  was:hasDimensionX1 0;
-  was:hasDimensionY1 0;
-  was:hasDimensionX2 1;
-  was:hasDimensionY2 1.
-
-ex:coordinate2 a was:Coordinates;
-  was:hasDimensionX1 1;
-  was:hasDimensionY1 0;
-  was:hasDimensionX2 2;
-  was:hasDimensionY2 1.
-
-ex:coordinate3 a was:Coordinates;
-  was:hasDimensionX1 0;
-  was:hasDimensionY1 1;
-  was:hasDimensionX2 1;
-  was:hasDimensionY2 2.
-
-ex:coordinate4 a was:Coordinates;
-  was:hasDimensionX1 1;
-  was:hasDimensionY1 1;
-  was:hasDimensionX2 2;
-  was:hasDimensionY2 2.
-
-ex:wheat1 a was:Wheat;
-  was:hasMoistureLevel 125 .
-
-ex:wheat2 a was:Wheat;
-  was:hasMoistureLevel 115 .
-
-ex:crop1 a was:Crop;
-  was:hasMoistureLevel 85 .
-
-ex:crop2 a was:Crop;
-  was:hasMoistureLevel 75 .
-
 

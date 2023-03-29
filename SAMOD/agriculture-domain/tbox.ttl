@@ -1,18 +1,18 @@
-@base <https://was-course.interactions.ics.unisg.ch/farm-ontology#> .
-@prefix was: <https://was-course.interactions.ics.unisg.ch/farm-ontology#> .
+@prefix : <https://was-course.interactions.ics.unisg.ch/farm-ontology#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix was: <https://was-course.interactions.ics.unisg.ch/farm-ontology#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix hmas: <https://purl.org/hmas/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix td: <https://www.w3.org/2019/wot/td#> .
-@prefix hmas: <https://purl.org/hmas/> .
+@base <https://was-course.interactions.ics.unisg.ch/farm-ontology#> .
 
 <https://was-course.interactions.ics.unisg.ch/farm-ontology#> rdf:type owl:Ontology ;
-                                                              rdfs:comment "An ontology for representing knowledge useful for the management of farms."@en ;
-                                                              vann:preferredNamespacePrefix "was" .
-
+                                                               vann:preferredNamespacePrefix "was" ;
+                                                               rdfs:comment "An ontology for representing knowledge useful for the management of farms."@en .
 
 #################################################################
 #    Annotation properties
@@ -26,105 +26,54 @@ vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  https://purl.org/hmas/contains
-hmas:contains rdf:type owl:ObjectProperty .
-
-
-###  https://was-course.interactions.ics.unisg.ch/farm-ontology#contains
-was:contains rdf:type owl:ObjectProperty .
-
-
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#grows
-was:grows rdf:type owl:ObjectProperty .
+was:grows rdf:type owl:ObjectProperty ;
+          rdfs:comment "Land section grows crops." .
 
 
-###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasActionAffordance
-was:hasActionAffordance rdf:type owl:ObjectProperty .
-
-
-###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasCoordinates
-was:hasCoordinates rdf:type owl:ObjectProperty .
-
-
-###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasDimension
-was:hasDimension rdf:type owl:ObjectProperty .
-
-
-###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasDimensionX1
-was:hasDimensionX1 rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf was:hasDimension .
-
-
-###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasDimensionX2
-was:hasDimensionX2 rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf was:hasDimension .
-
-
-###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasDimensionY1
-was:hasDimensionY1 rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf was:hasDimension .
-
-
-###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasDimensionY2
-was:hasDimensionY2 rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf was:hasDimension .
+###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasDimensions
+was:hasDimensions rdf:type owl:ObjectProperty ;
+                  rdfs:range rdf:List ;
+                  rdfs:domain was:Coordinates ;
+                  rdfs:comment "Land section has dimensions of coordinates." .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasLandSection
-was:hasLandSection rdf:type owl:ObjectProperty .
+was:hasLandSection rdf:type owl:ObjectProperty ;
+                   rdfs:domain was:Farm ;
+                   rdfs:range was:Section ;
+                   rdfs:comment "Farm has land sections of land section." .
 
 
-###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasMoistureLevel
-was:hasMoistureLevel rdf:type owl:ObjectProperty .
+###  https://was-course.interactions.ics.unisg.ch/farm-ontology#hasMoistureLevelOf
+was:hasMoistureLevelOf rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdfs:comment "Land section has moisture level of soil moisture." .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#irrigates
-was:irrigates rdf:type owl:ObjectProperty .
+was:irrigates rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:comment "Tractor irrigates land sections." .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#monitors
-was:monitors rdf:type owl:ObjectProperty .
+was:monitors rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:comment "Agent monitors land sections." .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#operates
-was:operates rdf:type owl:ObjectProperty .
-
-
-###  https://www.w3.org/2019/wot/td#hasActionAffordance
-td:hasActionAffordance rdf:type owl:ObjectProperty .
+was:operates rdf:type owl:ObjectProperty ;
+             rdfs:comment "Agent opertates tractors." .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Agent
-was:Agent rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty was:operates ;
-                            owl:someValuesFrom was:Tractor
-                          ] ;
-          rdfs:comment "Agent operates the tractor." .
-
-
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Coordinates
 was:Coordinates rdf:type owl:Class ;
-                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                  owl:onProperty was:hasDimensionX1 ;
-                                  owl:someValuesFrom was:Dimension
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty was:hasDimensionX2 ;
-                                  owl:someValuesFrom was:Dimension
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty was:hasDimensionY1 ;
-                                  owl:someValuesFrom was:Dimension
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty was:hasDimensionY2 ;
-                                  owl:someValuesFrom was:Dimension
-                                ] ;
                 rdfs:comment "A set of 4 coordinates [X1,Y1,X2,Y2] that define the opposite corners of a square section at points [X1,Y1] and [X2,Y2]."@en .
 
 
@@ -132,78 +81,43 @@ was:Coordinates rdf:type owl:Class ;
 was:CornCrop rdf:type owl:Class ;
              rdfs:subClassOf was:Crop ;
              owl:disjointWith was:WheatCrop ;
-             rdfs:comment "Another kind of crop type grew on the land sections." .
+             rdfs:comment "A type of crop called wheat that is grown in the land sections." .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Crop
 was:Crop rdf:type owl:Class ;
-         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                           owl:onProperty was:hasMoistureLevel ;
-                           owl:someValuesFrom was:SoilMoisture
-                         ] ;
-         rdfs:comment "Crop grows on land sections." .
-
-
-###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Dimension
-was:Dimension rdf:type owl:Class .
+         rdfs:comment "Crop is grown in the land sections." .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Farm
 was:Farm rdf:type owl:Class ;
-         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                           owl:onProperty hmas:contains ;
-                           owl:someValuesFrom was:Tractor
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty was:hasLandSection ;
-                           owl:someValuesFrom was:Section
-                         ] ;
          rdfs:comment "A plot of land devoted to the growing of crops."@en .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#IrrigateAffordance
 was:IrrigateAffordance rdf:type owl:Class ;
-                       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                         owl:onProperty was:irrigates ;
-                                         owl:someValuesFrom was:Crop
-                                       ] ;
-                       owl:disjointWith was:ReadSoilMoistureAffordance ;
                        rdfs:comment "An affordance offerred by the environment to agents for irrigating the soil."@en .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#IrrigateAgent
 was:IrrigateAgent rdf:type owl:Class ;
-                  rdfs:subClassOf was:Agent ;
                   owl:disjointWith was:MonitorAgent ;
-                  rdfs:comment "Agent that operates the tractor to irrigate the land section." .
+                  rdfs:comment "An agent that monitors the current moisture levels of land sections." .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#MonitorAgent
 was:MonitorAgent rdf:type owl:Class ;
-                 rdfs:subClassOf was:Agent ;
-                 rdfs:comment "Agent that operates the tractor to monitor the level of moisture of the land section." .
+                 rdfs:comment "An agent that irrigates land sections." .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#ReadSoilMoistureAffordance
 was:ReadSoilMoistureAffordance rdf:type owl:Class ;
-                               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                 owl:onProperty was:monitors ;
-                                                 owl:someValuesFrom was:Crop
-                                               ] ;
                                rdfs:comment "An affordance offerred by the environment to agents for reading the moisture level of soil."@en .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Section
 was:Section rdf:type owl:Class ;
-            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                              owl:onProperty was:grows ;
-                              owl:someValuesFrom was:Crop
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty was:hasCoordinates ;
-                              owl:someValuesFrom was:Coordinates
-                            ] ;
-            rdfs:comment "Land sections that divide the farm, consisting of different crop types. The type of land section is square." .
+            rdfs:comment "Farm has land sections that grows crops." .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#SoilMoisture
@@ -213,21 +127,32 @@ was:SoilMoisture rdf:type owl:Class ;
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#Tractor
 was:Tractor rdf:type owl:Class ;
-            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                              owl:onProperty td:hasActionAffordance ;
-                              owl:someValuesFrom [ rdf:type owl:Class ;
-                                                   owl:unionOf ( was:IrrigateAffordance
-                                                                 was:ReadSoilMoistureAffordance
-                                                               )
-                                                 ]
-                            ] ;
             rdfs:comment "An automotive vehicle that offers affordances to agents for managing a farm."@en .
 
 
 ###  https://was-course.interactions.ics.unisg.ch/farm-ontology#WheatCrop
 was:WheatCrop rdf:type owl:Class ;
               rdfs:subClassOf was:Crop ;
-              rdfs:comment "One kind of crop type grew on the land sections." .
+              rdfs:comment "A type of crop called wheat that is grown in the land sections." .
+
+### Define the properties for X and Y
+was:x1 rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:integer ;
+      rdfs:domain was:Coordinates ;
+      rdfs:comment "The X1 value of a coordinate."@en .
+was:x2 rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:integer ;
+      rdfs:domain was:Coordinates ;
+      rdfs:comment "The X2 value of a coordinate."@en .
+
+was:y1 rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:integer ;
+      rdfs:domain was:Coordinates ;
+      rdfs:comment "The Y1 value of a coordinate."@en .
+was:y2 rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:integer ;
+      rdfs:domain was:Coordinates ;
+      rdfs:comment "The Y2 value of a coordinate."@en .
 
 
-###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

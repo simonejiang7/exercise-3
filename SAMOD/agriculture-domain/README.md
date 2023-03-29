@@ -32,20 +32,19 @@ The tractors are operated by two autonomous agents: An agent that monitors the c
 - **IrrigateAffordance**: An affordance offerred by the environment to agents for irrigating the soil.
 - **Coordinates**: A set of 4 coordinates [X1,Y1,X2,Y2] that define the opposite corners of a square section at points [X1,Y1] and [X2,Y2].
 - **SoilMoisture**: The level of moisture in soil.
-- **Section**: Land sections that divide the farm, consisting of different crop types. The type of land section is square.
-- **Crop**: Crop grows on land sections.
-- **WheatCrop**: One kind of crop type grew on the land sections.
-- **CornCrop**: Another kind of crop type grew on the land sections.
-- **Agent**: Agent operates the tractor.
+- **Section**: Land sections that divide the farm, consisting of different crop types. The type of land section is square. In this scenario, there are four land sections.
+<!-- - **Crop**: Crop grows on land sections. -->
+- **WheatCrop**:  A type of crop grown in two of the land sections, with required soil moisture level of 120.
+- **CornCrop**: A type of crop grown in the other two land sections, with required soil moisture level of 80.
+<!-- - **Agent**: Agent operates the tractor. -->
 - **MonitorAgent**: Agent that operates the tractor to monitor the level of moisture of the land section.
 - **IrrigateAgent**: Agent that operates the tractor to irrigate the land section.
 - **hasLandSection**: The farm has land sections.
 - **hasDimension**: The geometric information of the land section defined by the coordinates.
 - **grows**: The land section grows crops, such as wheat and corn.
 - **hasMoistureLevelOf**: The land section has moisture level.
-- **contains**: The farm contains tractors.
 - **operates**: The agent operates a tractor.
-- **hasActionAffordance**: The tractor has an affordance for a land section.
+<!-- - **hasActionAffordance**: The tractor has an affordance for a land section. -->
 - **monitors**: The capacity of an affordance to read the moisture level of soil of a land section.
 - **irrigates**: The capacity of an affordance to irrigate a land section.
 
