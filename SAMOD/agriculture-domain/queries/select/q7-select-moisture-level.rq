@@ -2,12 +2,12 @@ PREFIX was: <https://was-course.interactions.ics.unisg.ch/farm-ontology#>
 PREFIX hmas: <https://purl.org/hmas/>
 
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-SELECT ?crop WHERE {
+SELECT ?moisture WHERE {
 GRAPH <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#> {
    bind (<https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#farm-17c04810-567a-4236-b310-611bb4fd2a8c> as ?farm) 
    ?section a was:Section.
    ?section was:grows ?crop.
+   ?crop a was:WheatCrop.
    ?crop was:hasMoistureLevelOf ?moisture.
-   FILTER(?moisture ="80"^^xsd:integer )
  }
 }

@@ -10,14 +10,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 INSERT {
     GRAPH <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#>
     {
-        ?wheatcrop1 a was:WheatCrop;
-            was:hasMoistureLevelOf [ was:SoilMoisture "80"^^xsd:integer ].
-        ?wheatcrop2 a was:WheatCrop;
-            was:hasMoistureLevelOf [ was:SoilMoisture "120"^^xsd:integer ].
-        ?corncrop1 a was:CornCrop;
-            was:hasMoistureLevelOf [ was:SoilMoisture "80"^^xsd:integer ].
-        ?corncrop2 a was:CornCrop;
-            was:hasMoistureLevelOf [ was:SoilMoisture "120"^^xsd:integer ].
+        ?wheatcrop1 a was:WheatCrop.
+        ?wheatcrop2 a was:WheatCrop.
+        ?corncrop1 a was:CornCrop.
+        ?corncrop2 a was:CornCrop.
         
         ?section1 was:grows ?wheatcrop1.
         ?section2 was:grows ?wheatcrop2.

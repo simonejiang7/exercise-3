@@ -1,0 +1,39 @@
+PREFIX was: <https://was-course.interactions.ics.unisg.ch/farm-ontology#>
+PREFIX hmas: <https://purl.org/hmas/>
+PREFIX td: <https://www.w3.org/2019/wot/td#>
+PREFIX wotsec: <https://www.w3.org/2019/wot/security#>
+PREFIX htv: <http://www.w3.org/2011/http#>
+PREFIX hctl: <https://www.w3.org/2019/wot/hypermedia#>
+PREFIX js: <https://www.w3.org/2019/wot/json-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT {
+    GRAPH <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#>
+    {
+        ?wheatcrop1 was:hasMoistureLevelOf ?moisture1.
+        ?wheatcrop2 was:hasMoistureLevelOf ?moisture2.
+        ?corncrop1 was:hasMoistureLevelOf ?moisture1.
+        ?corncrop2 was:hasMoistureLevelOf ?moisture2.
+
+        ?moisture1 was:SoliMoisture "80"^^xsd:integer.
+        ?moisture2 was:SoliMoisture "120"^^xsd:integer.
+
+    }.
+} WHERE {
+    ?section1 was:grows ?wheatcrop1.
+    ?section2 was:grows ?wheatcrop2.
+    ?section3 was:grows ?corncrop1.
+    ?section4 was:grows ?corncrop2.
+
+    ?section1 was:hasDimensions ( [ a was:Coordinates; was:x1 "0"^^xsd:integer; was:y1 "0"^^xsd:integer; was:x2 "1"^^xsd:integer; was:y2 "1"^^xsd:integer ]
+                     ) .
+    ?section2 was:hasDimensions ( [ a was:Coordinate; was:x1 "1"^^xsd:integer; was:y1 "0"^^xsd:integer; was:x2 "2"^^xsd:integer; was:y2 "1"^^xsd:integer ]
+                     ) .
+    ?section3 was:hasDimensions ( [ a was:Coordinate; was:x1 "0"^^xsd:integer; was:y1 "1"^^xsd:integer; was:x2 "1"^^xsd:integer; was:y2 "2"^^xsd:integer ]
+                     ) .
+    ?section4 was:hasDimensions ( [ a was:Coordinate; was:x1 "1"^^xsd:integer; was:y1 "1"^^xsd:integer; was:x2 "2"^^xsd:integer; was:y2 "2"^^xsd:integer ]
+                     ) .
+
+  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#moisture-", '1')) AS ?moisture1)
+  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#moisture-", '2')) AS ?moisture2)
+}
