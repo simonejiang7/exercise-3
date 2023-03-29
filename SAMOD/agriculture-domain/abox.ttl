@@ -49,8 +49,18 @@ ex:wheatcrop-1 a was:WheatCrop;
 ex:wheatcrop-2 a was:WheatCrop;
   was:hasMoistureLevelOf [ was:SoilMoisture "120"^^xsd:integer ].
 
+ex:agent-1 a was:IrrigateAgent;
+  was:operates ex:tractor-ae039570-396e-424f-9008-2142c3201b73.
+
+ex:agent-2 a was:MonitorAgent;
+  was:operates ex:tractor-34541705-7798-4a16-b76b-5fec2861e077.
+
 ex:tractor-34541705-7798-4a16-b76b-5fec2861e077 a td:Thing, was:Tractor;
   hmas:hasProfile <https://raw.githubusercontent.com/Interactions-HSG/example-tds/was/tds/tractor1.ttl> ;
+  # was:monitors ex:section-1,
+  #   ex:section-2,
+  #   ex:section-3,
+  #   ex:section-4;
   td:title "A tractor that can be used for monitoring the moisture level of soil in a farm.";
   td:hasSecurityConfiguration [ a wotsec:NoSecurityScheme];
   td:hasBase <http://localhost:1080/api/tractors/1/>;
@@ -75,6 +85,10 @@ ex:tractor-34541705-7798-4a16-b76b-5fec2861e077 a td:Thing, was:Tractor;
 
 ex:tractor-ae039570-396e-424f-9008-2142c3201b73 a td:Thing, was:Tractor;
   hmas:hasProfile <https://raw.githubusercontent.com/Interactions-HSG/example-tds/was/tds/tractor2.ttl> ;
+  # was:irrigates ex:section-1,
+  #   ex:section-2,
+  #   ex:section-3,
+  #   ex:section-4;
   td:title "A tractor that can be used for irrigating sections in a farm.";
   td:hasSecurityConfiguration [ a wotsec:NoSecurityScheme ];
   td:hasBase <http://localhost:1080/api/tractors/2/>;
