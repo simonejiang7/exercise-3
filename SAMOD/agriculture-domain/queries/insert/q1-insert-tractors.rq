@@ -59,6 +59,6 @@ INSERT {
     }.
 } WHERE {
 	?farm a was:Farm.
-  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#tractor-", strUUID())) AS ?newTractor1)
-  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#tractor-", strUUID())) AS ?newTractor2)
+  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#tractor-", '34541705-7798-4a16-b76b-5fec2861e077')) AS ?newTractor1)
+  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#tractor-", 'ae039570-396e-424f-9008-2142c3201b73')) AS ?newTractor2)
 }

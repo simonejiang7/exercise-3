@@ -1,0 +1,37 @@
+PREFIX was: <https://was-course.interactions.ics.unisg.ch/farm-ontology#>
+PREFIX hmas: <https://purl.org/hmas/>
+PREFIX td: <https://www.w3.org/2019/wot/td#>
+PREFIX wotsec: <https://www.w3.org/2019/wot/security#>
+PREFIX htv: <http://www.w3.org/2011/http#>
+PREFIX hctl: <https://www.w3.org/2019/wot/hypermedia#>
+PREFIX js: <https://www.w3.org/2019/wot/json-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT {
+    GRAPH <https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#>
+    {
+        ?farm was:hasLandSection ?newSection1.
+        ?farm was:hasLandSection ?newSection2.
+        ?farm was:hasLandSection ?newSection3.
+        ?farm was:hasLandSection ?newSection4.
+
+        ?newSection1 a was:Section;
+            was:hasDimensions ( [ a was:Coordinates; was:x1 "0"^^xsd:integer; was:y1 "0"^^xsd:integer; was:x2 "1"^^xsd:integer; was:y2 "1"^^xsd:integer ]
+                     ) .
+        ?newSection2 a was:Section;
+            was:hasDimensions ( [ a was:Coordinate; was:x1 "1"^^xsd:integer; was:y1 "0"^^xsd:integer; was:x2 "2"^^xsd:integer; was:y2 "1"^^xsd:integer ]
+                     ) .
+        ?newSection3 a was:Section;
+            was:hasDimensions ( [ a was:Coordinate; was:x1 "0"^^xsd:integer; was:y1 "1"^^xsd:integer; was:x2 "1"^^xsd:integer; was:y2 "2"^^xsd:integer ]
+                     ) .
+        ?newSection4 a was:Section;
+            was:hasDimensions ( [ a was:Coordinate; was:x1 "1"^^xsd:integer; was:y1 "1"^^xsd:integer; was:x2 "2"^^xsd:integer; was:y2 "2"^^xsd:integer ]
+                     ) .
+    }.
+} WHERE {
+	?farm a was:Farm.
+  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-", '1')) AS ?newSection1)
+  	BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-", '2')) AS ?newSection2)
+    BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-", '3')) AS ?newSection3)
+    BIND(IRI(CONCAT("https://sandbox-graphdb.interactions.ics.unisg.ch/was-exercise-3-xuemei#section-", '4')) AS ?newSection4)
+}
